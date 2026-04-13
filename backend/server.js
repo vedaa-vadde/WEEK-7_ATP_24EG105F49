@@ -53,7 +53,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Serve the frontend build dynamically
-app.use(exp.static(path.join(__dirname, '../BLOG-APP FRONTEND/dist')));
+app.use(exp.static(path.join(__dirname, '../frontend/dist')));
 
 app.use((req, res, next) => {
   // If the request starts with api routes, return 404 as before
@@ -61,7 +61,7 @@ app.use((req, res, next) => {
     res.status(404).json({ message: `Path ${req.url} is Invalid` })
   } else {
     // Other routes should be forwarded to the React Application
-    res.sendFile(path.join(__dirname, '../BLOG-APP FRONTEND/dist/index.html'))
+    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'))
   }
 })
 
