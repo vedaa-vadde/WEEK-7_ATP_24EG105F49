@@ -1,0 +1,12 @@
+{
+  "name": "atp-week-7-blog-app",
+  "version": "1.0.0",
+  "description": "Full-stack Blog Application for Week 7",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix BLOG-APP/\"BLOG-APP BACKEND\" && npm install --prefix BLOG-APP/\"BLOG-APP FRONTEND\"",
+    "build:frontend": "npm run build --prefix BLOG-APP/\"BLOG-APP FRONTEND\"",
+    "start": "npm start --prefix BLOG-APP/\"BLOG-APP BACKEND\"",
+    "dev": "npm run dev --prefix BLOG-APP/\"BLOG-APP FRONTEND\""
+  }
+}

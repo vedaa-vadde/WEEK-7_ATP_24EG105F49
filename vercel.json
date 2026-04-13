@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "BLOG-APP/BLOG-APP BACKEND/server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "BLOG-APP/BLOG-APP FRONTEND/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/user-api/(.*)",
+      "destination": "BLOG-APP/BLOG-APP BACKEND/server.js"
+    },
+    {
+      "source": "/author-api/(.*)",
+      "destination": "BLOG-APP/BLOG-APP BACKEND/server.js"
+    },
+    {
+      "source": "/admin-api/(.*)",
+      "destination": "BLOG-APP/BLOG-APP BACKEND/server.js"
+    },
+    {
+      "source": "/common-api/(.*)",
+      "destination": "BLOG-APP/BLOG-APP BACKEND/server.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "BLOG-APP/BLOG-APP FRONTEND/dist/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "BLOG-APP/BLOG-APP FRONTEND/dist/index.html"
+    }
+  ]
+}
