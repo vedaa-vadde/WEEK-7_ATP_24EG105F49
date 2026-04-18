@@ -53,7 +53,7 @@ commonApp.post('/login', async(req,res)=>{
     //http only cooke by using 3rd param coc http onlt then clinet side cant access it
     res.cookie("token",signedToken,{
         httpOnly:true,
-        secure:false,
+        secure: process.env.NODE_ENV === "production",
         sameSite:"lax"
     })
     //send res
@@ -68,7 +68,7 @@ commonApp.post('/login', async(req,res)=>{
    commonApp.post('/logout', async(req,res)=>{
     res.clearCookie('token',{
         httpOnly:true,
-        secure:false,
+        secure: process.env.NODE_ENV === "production",
         sameSite:"lax"
     });
      res.status(200).json({ message: "Logout successful" });
